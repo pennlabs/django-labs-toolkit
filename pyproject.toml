@@ -14,7 +14,7 @@ classifiers = [
 include = ["CHANGELOG.md", "LICENSE"]
 exclude = ["tox.ini"]
 packages = [
-    { include = "temporary" },
+    { include = "pennlabs" },
 ]
 
 [tool.poetry.dependencies]

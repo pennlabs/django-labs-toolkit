@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from temporary.temp import abc
+from pennlabs.temp import abc
 
 
 class ExampleTestCase(TestCase):
