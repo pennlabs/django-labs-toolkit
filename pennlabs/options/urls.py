@@ -1,6 +1,6 @@
 from django.urls import path
 
-from options.views import OptionListView
+from pennlabs.options.views import OptionListView
 
 
 app_name = "options"

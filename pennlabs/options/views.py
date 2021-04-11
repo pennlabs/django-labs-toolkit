@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.views import View
 
-from options.models import Option
+from pennlabs.options.models import Option
 
 
 class OptionListView(View):

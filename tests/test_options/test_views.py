@@ -1,7 +1,7 @@
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from options.models import Option
+from pennlabs.options.models import Option
 
 
 class OptionListViewTestCase(TestCase):

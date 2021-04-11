@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from options.models import Option, get_bool, get_option, get_value, is_bool, is_int
+from pennlabs.options.models import Option, get_bool, get_option, get_value, is_bool, is_int
 
 
 class OptionTestCase(TestCase):
