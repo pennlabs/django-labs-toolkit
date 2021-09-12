@@ -9,9 +9,7 @@ INSTALLED_APPS = (
     "django.contrib.sites",
     "django.contrib.admin",
     "django.contrib.messages",
-    # TODO: add apps
-    "tests",
-    'pennlabs.options'
+    "pennlabs.options.apps.OptionsConfig",
 )
 
 MIDDLEWARE = [
@@ -44,9 +42,7 @@ TEMPLATES = [
     }
 ]
 
-DATABASES = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "example.sqlite"}
-}
+DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "example.sqlite"}}
 
 
 LANGUAGE_CODE = "en-us"
