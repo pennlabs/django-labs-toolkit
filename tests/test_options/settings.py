@@ -42,7 +42,9 @@ TEMPLATES = [
     }
 ]
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "example.sqlite"}}
+DATABASES = {
+    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "example.sqlite"}
+}
 
 
 LANGUAGE_CODE = "en-us"

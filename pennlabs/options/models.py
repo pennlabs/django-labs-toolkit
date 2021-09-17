@@ -11,7 +11,19 @@ def is_int(s):
 
 
 def is_bool(s):
-    return s.lower() in ["true", "false", "1", "0", "t", "f", "y", "n" "yes", "no", "on", "off"]
+    return s.lower() in [
+        "true",
+        "false",
+        "1",
+        "0",
+        "t",
+        "f",
+        "y",
+        "n" "yes",
+        "no",
+        "on",
+        "off",
+    ]
 
 
 class Option(models.Model):

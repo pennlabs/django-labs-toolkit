@@ -11,7 +11,7 @@ INSTALLED_APPS = (
     "django.contrib.messages",
     # TODO: add apps
     "tests",
-    'pennlabs.options'
+    "pennlabs.options",
 )
 
 MIDDLEWARE = [

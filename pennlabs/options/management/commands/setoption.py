@@ -10,7 +10,9 @@ class Command(BaseCommand):
         types = f"Available types are {Option.TYPE_TXT}, {Option.TYPE_INT}, and {Option.TYPE_BOOL}"
         parser.add_argument("key", type=str, help="Key to use")
         parser.add_argument("value", type=str, help="Value to set")
-        parser.add_argument("--type", type=str, help=f"Type of value being set. {types}")
+        parser.add_argument(
+            "--type", type=str, help=f"Type of value being set. {types}"
+        )
 
     def handle(self, *args, **kwargs):
         key = kwargs["key"]
@@ -21,7 +23,9 @@ class Command(BaseCommand):
                 key=key, defaults={"value": value, "value_type": value_type}
             )
         else:  # Create new Option with default type or don't change existing type
-            option, created = Option.objects.update_or_create(key=key, defaults={"value": value})
+            option, created = Option.objects.update_or_create(
+                key=key, defaults={"value": value}
+            )
 
         YELLOW = "\033[33m"
         verb = "Created" if created else "Updated"
