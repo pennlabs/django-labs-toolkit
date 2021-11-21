@@ -48,6 +48,13 @@ class OptionTestCase(TestCase):
         self.option.value_type = Option.TYPE_BOOL
         self.assertRaises(ValidationError, self.option.save)
 
+    def test_typed_value_setter(self):
+        self.key = "key2"
+        self.value = "1"
+        self.option = Option.objects.create(key=self.key, value=self.value, value_type="Integer")
+        self.option.typed_value = 2
+        self.assertEquals(self.option.typed_value, "2")
+
 
 class UtilsTestCase(TestCase):
     def setUp(self):

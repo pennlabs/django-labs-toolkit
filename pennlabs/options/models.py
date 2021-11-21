@@ -74,7 +74,7 @@ class Option(models.Model):
         return self.value
 
     @typed_value.setter
-    def typed_value_setter(self, value):
+    def typed_value(self, value):
         """
         Given a typed value, convert into string form and set the untyped variable.
         """
