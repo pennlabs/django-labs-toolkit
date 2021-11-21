@@ -51,9 +51,11 @@ class OptionTestCase(TestCase):
     def test_typed_value_setter(self):
         self.key = "key2"
         self.value = "1"
-        self.option = Option.objects.create(key=self.key, value=self.value, value_type="Integer")
+        self.option = Option.objects.create(
+            key=self.key, value=self.value, value_type="Integer"
+        )
         self.option.typed_value = 2
-        self.assertEquals(self.option.typed_value, "2")
+        self.assertEqual(self.option.typed_value, "2")
 
 
 class UtilsTestCase(TestCase):
