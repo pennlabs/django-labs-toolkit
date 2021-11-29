@@ -1,6 +1,7 @@
 # IDEs and OSs
 .vscode
 .DS_Store
+*.idea/
 
 # Python
 build/
@@ -11,3 +12,4 @@ dist/
 __pycache__/
 .tox
 test-results/
+

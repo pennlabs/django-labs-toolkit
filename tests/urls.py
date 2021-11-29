@@ -2,5 +2,5 @@ from django.urls import include, path
 
 
 urlpatterns = [
-    path("", include("TODO: change me.urls", namespace="django-labs-toolkit"))
+    path("", include("pennlabs.options.urls", namespace="django-labs-toolkit"))
 ]
