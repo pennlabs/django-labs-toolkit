@@ -1,6 +1,4 @@
 from django.urls import include, path
 
 
-urlpatterns = [
-    path("", include("pennlabs.options.urls", namespace="django-labs-toolkit"))
-]
+urlpatterns = [path("/options", include("pennlabs.options.urls", namespace="options"))]
