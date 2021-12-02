@@ -37,3 +37,10 @@ class UrlTestCase(TestCase):
         self.assertTrue(created1)
         self.assertEqual(url2.short_id, "abcdef")
         self.assertTrue(created2)
+
+    @patch("pennlabs.shortener.manager.hashlib")
+    def test_attr_error(self, mock_hash):
+        mock_hash.sha3_256.return_value = 1
+        mock_hash.sha256.return_value.hexdigest.return_value = "1234"
+        url, created = Url.objects.get_or_create(long_url="url1")
+        self.assertEqual(url.short_id, "1234")
