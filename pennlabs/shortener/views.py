@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.base import View
 
-from shortener.models import Url
+from pennlabs.shortener.models import Url
 
 
 class RedirectView(View):

@@ -3,7 +3,7 @@ import hashlib
 from django.test import TestCase
 from django.urls import reverse
 
-from shortener.models import Url
+from pennlabs.shortener.models import Url
 
 
 class RedirectViewTestCase(TestCase):

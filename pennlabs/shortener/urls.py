@@ -1,6 +1,6 @@
 from django.urls import path
 
-from shortener.views import RedirectView
+from pennlabs.shortener.views import RedirectView
 
 
 app_name = "shortener"

@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from shortener.models import Url
+from pennlabs.shortener.models import Url
 
 
 class UrlTestCase(TestCase):

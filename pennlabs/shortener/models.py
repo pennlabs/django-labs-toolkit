@@ -1,6 +1,6 @@
 from django.db import models
 
-from shortener.manager import UrlManager
+from pennlabs.shortener.manager import UrlManager
 
 
 class Url(models.Model):

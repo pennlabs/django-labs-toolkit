@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from django.test import TestCase
 
-from shortener.models import Url
+from pennlabs.shortener.models import Url
 
 
 class UrlTestCase(TestCase):
@@ -25,7 +25,7 @@ class UrlTestCase(TestCase):
         self.assertEqual(len(Url.objects.all()), 1)
         self.assertEqual(Url.objects.all()[0], url)
 
-    @patch("shortener.manager.hashlib")
+    @patch("pennlabs.shortener.manager.hashlib")
     def test_collision(self, mock_hash):
         try:
             mock_hash.sha3_256.return_value.hexdigest.return_value = "abcdef"
