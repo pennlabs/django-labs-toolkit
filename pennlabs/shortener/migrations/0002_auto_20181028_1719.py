@@ -8,6 +8,10 @@ class Migration(migrations.Migration):
     dependencies = [("shortener", "0001_initial")]
 
     operations = [
-        migrations.AlterField(model_name="url", name="long_url", field=models.URLField()),
-        migrations.AlterField(model_name="url", name="short_id", field=models.SlugField()),
+        migrations.AlterField(
+            model_name="url", name="long_url", field=models.URLField()
+        ),
+        migrations.AlterField(
+            model_name="url", name="short_id", field=models.SlugField()
+        ),
     ]
