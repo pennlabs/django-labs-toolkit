@@ -12,6 +12,7 @@ INSTALLED_APPS = (
     # TODO: add apps
     "tests",
     "pennlabs.options",
+    "pennlabs.shortener",
 )
 
 MIDDLEWARE = [
