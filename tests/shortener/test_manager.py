@@ -23,7 +23,7 @@ class UrlTestCase(TestCase):
         url, created = Url.objects.get_or_create(long_url=self.redirect)
         self.assertTrue(created)
         self.assertEqual(Url.objects.all().count(), 1)
-        self.assertEqual(Url.objects.all()[0], url)
+        self.assertEqual(Url.objects.all().first(), url)
 
     @patch("pennlabs.shortener.manager.hashlib")
     def test_collision(self, mock_hash):
