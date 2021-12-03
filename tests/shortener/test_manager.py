@@ -34,4 +34,3 @@ class UrlTestCase(TestCase):
         self.assertTrue(created1)
         self.assertEqual(url2.short_id, "abcdef")
         self.assertTrue(created2)
-
