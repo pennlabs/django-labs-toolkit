@@ -11,26 +11,23 @@ class UrlTestCase(TestCase):
 
     def test_exists(self):
         url, created1 = Url.objects.get_or_create(long_url=self.redirect)
-        self.assertEqual(len(Url.objects.all()), 1)
+        self.assertEqual(Url.objects.all().count(), 1)
         self.assertTrue(created1)
         _, created2 = Url.objects.get_or_create(long_url=self.redirect)
         self.assertFalse(created2)
-        self.assertEqual(len(Url.objects.all()), 1)
+        self.assertEqual(Url.objects.all().count(), 1)
         self.assertEqual(Url.objects.all()[0], url)
 
     def test_no_exists(self):
-        self.assertEqual(len(Url.objects.all()), 0)
+        self.assertFalse(Url.objects.all().exists())
         url, created = Url.objects.get_or_create(long_url=self.redirect)
         self.assertTrue(created)
-        self.assertEqual(len(Url.objects.all()), 1)
+        self.assertEqual(Url.objects.all().count(), 1)
         self.assertEqual(Url.objects.all()[0], url)
 
     @patch("pennlabs.shortener.manager.hashlib")
     def test_collision(self, mock_hash):
-        try:
-            mock_hash.sha3_256.return_value.hexdigest.return_value = "abcdef"
-        except AttributeError:
-            mock_hash.sha256.return_value.hexdigest.return_value = "abcdef"
+        mock_hash.sha3_256.return_value.hexdigest.return_value = "abcdef"
         url1, created1 = Url.objects.get_or_create(long_url="url1")
         url2, created2 = Url.objects.get_or_create(long_url="url2")
         self.assertEqual(url1.short_id, "abcde")
@@ -38,9 +35,3 @@ class UrlTestCase(TestCase):
         self.assertEqual(url2.short_id, "abcdef")
         self.assertTrue(created2)
 
-    @patch("pennlabs.shortener.manager.hashlib")
-    def test_attr_error(self, mock_hash):
-        mock_hash.sha3_256.return_value = 1
-        mock_hash.sha256.return_value.hexdigest.return_value = "1234"
-        url, created = Url.objects.get_or_create(long_url="url1")
-        self.assertEqual(url.short_id, "1234")

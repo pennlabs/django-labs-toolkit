@@ -9,5 +9,4 @@ class UrlTestCase(TestCase):
 
     def test_str(self):
         self.assertEqual(
-            str(self.url), "{} -- {}".format(self.url.long_url, self.url.short_id)
-        )
+            str(self.url), f"{self.url.long_url} -- {self.url.short_id}")
