@@ -3,9 +3,9 @@ from textwrap import dedent
 from django.core import mail
 from django.template.loader import render_to_string
 from django.test import TestCase
-import os
+
 from pennlabs.emailtools.emails import EmailPreviewContext, html_to_text, send_email
-from pennlabs.emailtools.settings import email_settings
+from pennlabs.emailtools.settings import email_settings, reload_api_settings
 
 
 class SendEmailTestCase(TestCase):
@@ -38,12 +38,17 @@ class SendEmailTestCase(TestCase):
 
     def test_args(self):
         reply_to = ["reply@example.com"]
-        send_email(self.template, self.context, self.subject, self.to, reply_to=reply_to)
+        send_email(
+            self.template, self.context, self.subject, self.to, reply_to=reply_to
+        )
         email = mail.outbox[0]
         self.assertEqual(reply_to, email.reply_to)
 
 
 class HtmlToTextTestCase(TestCase):
+    def test_none(self):
+        self.assertEqual(html_to_text(None), None)
+
     def test_simple(self):
         expected = dedent(
             """
@@ -97,3 +102,13 @@ class EmailPreviewContextTestCase(TestCase):
     def test_get_used_variables(self):
         self.context["key"]
         self.assertEqual(self.pair, self.context.get_used_variables())
+
+
+class EmailSettingsTestCase(TestCase):
+    def test_reload(self):
+        email_settings.reload()
+        self.assertEqual(len(email_settings._cached_attrs), 0)
+
+    def test_reload_api(self):
+        reload_api_settings(setting="EMAIL_TOOLS")
+        self.assertEqual(len(email_settings._cached_attrs), 0)

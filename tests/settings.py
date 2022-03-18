@@ -1,5 +1,6 @@
 import os
 
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = "supersecret"
@@ -17,7 +18,7 @@ INSTALLED_APPS = (
     "tests",
     "pennlabs.options",
     "pennlabs.shortener",
-    "pennlabs.emailtools"
+    "pennlabs.emailtools",
 )
 
 MIDDLEWARE = [

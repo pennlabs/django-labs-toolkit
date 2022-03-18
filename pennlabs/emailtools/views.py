@@ -16,7 +16,9 @@ class EmailPreviewView(TemplateView):
 
     def get_context_data(self, **kwargs):
         email_templates = os.listdir(email_settings.TEMPLATE_DIRECTORY)
-        email_templates = [e.rsplit(".", 1)[0] for e in email_templates if e.endswith(".html")]
+        email_templates = [
+            e.rsplit(".", 1)[0] for e in email_templates if e.endswith(".html")
+        ]
 
         email = None
         text_email = None
