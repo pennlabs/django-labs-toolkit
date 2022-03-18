@@ -17,7 +17,7 @@ INSTALLED_APPS = (
     "tests",
     "pennlabs.options",
     "pennlabs.shortener",
-    "pennlabs.email"
+    "pennlabs.emailtools"
 )
 
 MIDDLEWARE = [

@@ -3,7 +3,7 @@ from textwrap import dedent
 from django.core import mail
 from django.template.loader import render_to_string
 from django.test import TestCase
-
+import os
 from pennlabs.emailtools.emails import EmailPreviewContext, html_to_text, send_email
 from pennlabs.emailtools.settings import email_settings
 
