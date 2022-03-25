@@ -12,7 +12,7 @@ classifiers = [
     "Framework :: Django",
 ]
 include = ["CHANGELOG.md", "LICENSE"]
-exclude = ["tox.ini"z   ]
+exclude = ["tox.ini"]
 packages = [
     { include = "pennlabs" },
 ]
