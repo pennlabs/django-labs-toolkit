@@ -1,3 +1,8 @@
+import os
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 SECRET_KEY = "supersecret"
 
 ALLOWED_HOSTS = []
@@ -13,6 +18,7 @@ INSTALLED_APPS = (
     "tests",
     "pennlabs.options",
     "pennlabs.shortener",
+    "pennlabs.emailtools",
 )
 
 MIDDLEWARE = [
@@ -65,3 +71,5 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 TEST_OUTPUT_DIR = "test-results"
+
+EMAIL_TOOLS = {"FROM_EMAIL": "abc123@example.com"}
